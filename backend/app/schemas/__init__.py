@@ -15,6 +15,22 @@ from app.schemas.subscription import (
 from app.schemas.invoice import InvoiceLineResponse, InvoiceResponse
 from app.schemas.payment import PaymentCreate, PaymentResponse
 from app.schemas.billing import BillingRunRequest, BillingRunResponse
+from app.schemas.user import (
+    UserBase,
+    UserResponse,
+    UserUpdateRequest,
+    UserStatusUpdate,
+    StaffCreateRequest,
+    CustomerProfileResponse,
+)
+from app.schemas.auth import (
+    CustomerRegisterRequest,
+    LoginRequest,
+    Token,
+    ForgotPasswordRequest,
+    ResetPasswordRequest,
+    MessageResponse,
+)
 
 __all__ = [
     "QuotationLineCreate",
@@ -33,4 +49,16 @@ __all__ = [
     "PaymentResponse",
     "BillingRunRequest",
     "BillingRunResponse",
+    "UserBase",
+    "UserResponse",
+    "UserUpdateRequest",
+    "UserStatusUpdate",
+    "StaffCreateRequest",
+    "CustomerProfileResponse",
+    "CustomerRegisterRequest",
+    "LoginRequest",
+    "Token",
+    "ForgotPasswordRequest",
+    "ResetPasswordRequest",
+    "MessageResponse",
 ]

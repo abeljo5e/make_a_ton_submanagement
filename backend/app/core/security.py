@@ -7,14 +7,17 @@ from typing import Optional, List, Union
 import bcrypt
 import jwt
 from fastapi import Depends, HTTPException, status
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.db.session import get_db
 from app.models.user import User, UserRole
 
-# Use standard HTTPBearer for OpenAPI docs and token parsing
-http_bearer = HTTPBearer(auto_error=False)
+
+# OAuth2 scheme
+oauth2_scheme = OAuth2PasswordBearer(
+    tokenUrl=f"{settings.API_V1_STR}/auth/login"
+)
 
 
 # --- Password Hashing ---
@@ -25,7 +28,7 @@ def hash_password(password: str) -> str:
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
-    """Verify a plain password against stored bcrypt hash."""
+    """Verify a plain password against the stored bcrypt hash."""
     try:
         return bcrypt.checkpw(
             plain_password.encode("utf-8"), 
@@ -36,7 +39,14 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
 
 
 def validate_password_strength(password: str) -> tuple[bool, Optional[str]]:
-    """Validate password complexity requirements."""
+    """
+    Validate password complexity per Brightloop requirements:
+    - Longer than 8 characters (at least 9 chars)
+    - At least one uppercase letter
+    - At least one lowercase letter
+    - At least one digit
+    - At least one special character
+    """
     if len(password) <= 8:
         return False, "Password must be longer than 8 characters."
     if not re.search(r"[A-Z]", password):
@@ -81,20 +91,25 @@ def decode_access_token(token: str) -> dict:
         )
 
 
+# --- Password Reset Tokens ---
+def generate_reset_token() -> tuple[str, str]:
+    """Generate a high-entropy URL-safe reset token and its SHA-256 hash."""
+    raw_token = secrets.token_urlsafe(32)
+    token_hash = hash_reset_token(raw_token)
+    return raw_token, token_hash
+
+
+def hash_reset_token(raw_token: str) -> str:
+    """Hash reset token using SHA-256 before database storage."""
+    return hashlib.sha256(raw_token.encode("utf-8")).hexdigest()
+
+
 # --- Dependencies ---
 def get_current_user(
-    credentials: Optional[HTTPAuthorizationCredentials] = Depends(http_bearer), 
+    token: str = Depends(oauth2_scheme), 
     db: Session = Depends(get_db)
 ) -> User:
     """FastAPI dependency to retrieve authenticated user from bearer token."""
-    if not credentials or not credentials.credentials:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Not authenticated",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-    
-    token = credentials.credentials
     payload = decode_access_token(token)
     user_id_str = payload.get("sub")
     if not user_id_str:
@@ -155,4 +170,3 @@ def require_role(allowed_roles: List[Union[UserRole, str]]):
 require_admin = require_role([UserRole.ADMIN, "admin"])
 require_staff = require_role([UserRole.ADMIN, UserRole.STAFF, "admin", "staff"])
 require_customer = require_role([UserRole.CUSTOMER, "customer"])
-

@@ -4,8 +4,7 @@ SQLAlchemy 2.0 Base and shared mixins for Brightloop Software.
 from datetime import datetime, timezone
 from typing import Optional
 import uuid
-from sqlalchemy import DateTime, text
-from sqlalchemy.dialects.postgresql import UUID as PG_UUID
+from sqlalchemy import DateTime
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
@@ -52,4 +51,3 @@ class TimestampMixin:
         nullable=False,
         sort_order=101,
     )
-

@@ -27,7 +27,7 @@ class Settings(BaseSettings):
         "http://localhost:3000",
     ]
     
-    # Email settings
+    # Email settings (simulated in development)
     SMTP_HOST: str = "smtp.example.com"
     SMTP_PORT: int = 587
     SMTP_USERNAME: str = "no-reply@brightloop.local"
@@ -43,4 +43,3 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
-
