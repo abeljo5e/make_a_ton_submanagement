@@ -28,6 +28,9 @@ brightloop/
 ├── backend/                  # FastAPI application
 ├── docs/                     # Team and technical documentation
 ├── .github/                  # PR and issue templates
+├── CHANGELOG.md              # Completed changes log
+├── TEAM_STATUS.md            # Active tasks and progress
+├── AI_CONTEXT.md             # Shared AI instructions and architecture
 ├── docker-compose.yml
 ├── .env.example
 ├── .gitignore
@@ -49,6 +52,12 @@ Do not commit `.env`, passwords, tokens, database dumps or real customer data.
 
 ## Project status
 This repository documentation defines the agreed starting architecture and team contracts. A feature is not complete until its tests pass, its API/UI integration works, and its documentation is updated.
+
+## Development tracking and AI context
+- [Changelog](CHANGELOG.md) — Completed work log
+- [Team status](TEAM_STATUS.md) — Active tasks and who is working on what
+- [AI context and instructions](AI_CONTEXT.md) — Shared architecture guide and mandatory rules for AI agents
+- [Master AI instructions](docs/BRIGHTLOOP_MASTER_AI_INSTRUCTIONS.md) — Comprehensive technical guidelines
 
 ## Documentation index
 - [Requirements](docs/REQUIREMENTS.md)
