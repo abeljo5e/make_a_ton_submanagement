@@ -33,3 +33,4 @@ class Payment(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     notes: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
 
     invoice: Mapped["Invoice"] = relationship("Invoice", back_populates="payments")
+

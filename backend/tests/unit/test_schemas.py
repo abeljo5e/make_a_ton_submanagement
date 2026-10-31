@@ -82,3 +82,4 @@ def test_payment_create_schema():
     )
     assert payment.amount == Decimal("500.00")
     assert payment.payment_method == "simulation"
+

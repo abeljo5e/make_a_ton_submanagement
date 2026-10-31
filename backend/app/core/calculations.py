@@ -115,3 +115,4 @@ def evaluate_invoice_payment_status(total_amount: Decimal, total_paid: Decimal) 
         return "PARTIALLY_PAID"
     else:
         return "PAID"
+

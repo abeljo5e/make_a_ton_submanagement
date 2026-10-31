@@ -83,3 +83,4 @@ class SubscriptionLine(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     total_amount: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
 
     subscription: Mapped["Subscription"] = relationship("Subscription", back_populates="lines")
+

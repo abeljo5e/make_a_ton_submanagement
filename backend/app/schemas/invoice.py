@@ -47,3 +47,4 @@ class InvoiceResponse(BaseModel):
     lines: List[InvoiceLineResponse] = []
 
     model_config = ConfigDict(from_attributes=True)
+

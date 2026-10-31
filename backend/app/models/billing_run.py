@@ -24,3 +24,4 @@ class BillingRun(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     total_invoiced_amount: Mapped[Decimal] = mapped_column(Numeric(12, 2), default=Decimal("0.00"), nullable=False)
     
     error_message: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
+

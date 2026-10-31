@@ -146,3 +146,4 @@ class TestPaymentStatusEvaluation:
     def test_overpayment(self):
         status = evaluate_invoice_payment_status(Decimal("1000.00"), Decimal("1200.00"))
         assert status == "PAID"
+

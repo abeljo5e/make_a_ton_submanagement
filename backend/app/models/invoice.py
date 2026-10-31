@@ -88,3 +88,4 @@ class InvoiceLine(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     total_amount: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
 
     invoice: Mapped["Invoice"] = relationship("Invoice", back_populates="lines")
+

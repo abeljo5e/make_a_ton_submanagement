@@ -67,3 +67,4 @@ class QuotationLine(Base, UUIDPrimaryKeyMixin, TimestampMixin):
     total_amount: Mapped[Decimal] = mapped_column(Numeric(12, 2), nullable=False)
 
     quotation: Mapped["Quotation"] = relationship("Quotation", back_populates="lines")
+

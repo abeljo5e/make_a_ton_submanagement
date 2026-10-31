@@ -18,11 +18,11 @@ Current progress and active tasks across all modules. Update this checklist when
 ## Member 3 — Quotations, Subscriptions & Billing (`billing`)
 - [x] Phase 1: Architectural foundation, financial arithmetic, idempotency, and Member 2 schema review (`docs/MEMBER_3_FOUNDATION_SPEC.md`)
 - [x] Phase 2: Database models, relationships, constraints, and Pydantic schemas (`Quotation`, `Subscription`, `Invoice`, `Payment`, `BillingRun`)
-- [ ] Quotation generation and approval workflow (Phase 3)
-- [ ] Subscription lifecycle management (Active, Paused, Canceled) (Phase 4)
-- [ ] Recurring invoice calculation and generation (Phase 5)
-- [ ] Tax calculations and payment simulation / recording
-- [ ] Billing and invoice frontend screens
+- [x] Phase 3: Quotation generation, line calculations, lifecycle states, and conversion workflow (`QuotationService`)
+- [x] Phase 4: Subscription lifecycle management, pause/resume, cancel, and renewal (`SubscriptionService`)
+- [x] Phase 5: Recurring billing runs, idempotent invoice generation, and payment reconciliation (`BillingService`, `PaymentService`)
+- [x] Phase 6: REST API endpoints (`/quotations`, `/subscriptions`, `/invoices`, `/payments`, `/billing/run`)
+- [ ] Phase 7: Billing and invoice frontend screens
 
 ## Member 4 — Dashboard, Analytics & Deployment (`dashboard`)
 - [ ] Docker Compose setup for local development (FastAPI + PostgreSQL + Vite)

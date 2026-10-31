@@ -30,7 +30,10 @@ ENV/
 .coverage
 htmlcov/
 
-# Environment & Secrets
+# Database
+*.db
+*.sqlite3
+*.db-journal
 .env
 .env.local
 *.env
@@ -45,3 +48,4 @@ htmlcov/
 node_modules/
 dist/
 .DS_Store
+

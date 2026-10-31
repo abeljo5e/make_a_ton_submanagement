@@ -68,3 +68,4 @@ class QuotationResponse(BaseModel):
     lines: List[QuotationLineResponse] = []
 
     model_config = ConfigDict(from_attributes=True)
+

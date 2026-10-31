@@ -2,6 +2,7 @@
 SQLAlchemy 2.0 Base and shared mixins for Brightloop Software.
 """
 from datetime import datetime, timezone
+from typing import Optional
 import uuid
 from sqlalchemy import DateTime, text
 from sqlalchemy.dialects.postgresql import UUID as PG_UUID
@@ -11,6 +12,15 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 def utc_now() -> datetime:
     """Return timezone-aware current UTC datetime."""
     return datetime.now(timezone.utc)
+
+
+def ensure_utc(dt: Optional[datetime]) -> Optional[datetime]:
+    """Ensure a datetime is timezone-aware in UTC (essential for SQLite compatibility)."""
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(timezone.utc)
 
 
 class Base(DeclarativeBase):
@@ -42,3 +52,4 @@ class TimestampMixin:
         nullable=False,
         sort_order=101,
     )
+
