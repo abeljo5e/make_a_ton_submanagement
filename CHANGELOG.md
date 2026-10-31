@@ -19,6 +19,7 @@ Every teammate (and their AI agent) adds an entry under the current date when co
 
 ### Member 3 - Billing & Subscriptions (`billing`)
 - [x] Initial documentation for quotation workflows, subscription lifecycle, recurring invoice generation, and payment recording.
+- [x] Phase 1 Foundation: Authored complete architectural and technical foundation specification (`docs/MEMBER_3_FOUNDATION_SPEC.md`) covering SQLAlchemy 2.x relationships, ACID transaction boundaries, financial decimal arithmetic (`ROUND_HALF_UP`), billing period recurrence algorithms, idempotency constraints (`uq_invoice_subscription_period`), and Member 2 catalog schema review.
 - [ ] Designing quotation generation, subscription lifecycle, recurring invoice generation, and payment records.
 
 ### Member 4 - Dashboard & Integration (`dashboard`)

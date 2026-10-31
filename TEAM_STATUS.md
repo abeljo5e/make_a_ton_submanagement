@@ -16,6 +16,7 @@ Current progress and active tasks across all modules. Update this checklist when
 - [ ] Product catalog and plan management frontend screens
 
 ## Member 3 — Quotations, Subscriptions & Billing (`billing`)
+- [x] Phase 1: Architectural foundation, financial arithmetic, idempotency, and Member 2 schema review (`docs/MEMBER_3_FOUNDATION_SPEC.md`)
 - [ ] Quotation generation and approval workflow
 - [ ] Subscription lifecycle management (Active, Paused, Canceled)
 - [ ] Recurring invoice calculation and generation
