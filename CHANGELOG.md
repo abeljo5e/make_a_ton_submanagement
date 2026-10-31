@@ -20,7 +20,10 @@ Every teammate (and their AI agent) adds an entry under the current date when co
 ### Member 3 - Billing & Subscriptions (`billing`)
 - [x] Initial documentation for quotation workflows, subscription lifecycle, recurring invoice generation, and payment recording.
 - [x] Phase 1 Foundation: Authored complete architectural and technical foundation specification (`docs/MEMBER_3_FOUNDATION_SPEC.md`) covering SQLAlchemy 2.x relationships, ACID transaction boundaries, financial decimal arithmetic (`ROUND_HALF_UP`), billing period recurrence algorithms, idempotency constraints (`uq_invoice_subscription_period`), and Member 2 catalog schema review.
-- [ ] Designing quotation generation, subscription lifecycle, recurring invoice generation, and payment records.
+- [x] Phase 1 Foundation Tests: Implemented core calculation engine (`backend/app/core/calculations.py`) and verified 15 unit tests covering float-safety, tax/discount rounding, calendar-aware month-end recurrence drift, and payment settlement logic.
+- [x] Phase 2 Database Development: Created complete SQLAlchemy 2.x ORM models (`Quotation`, `QuotationLine`, `Subscription`, `SubscriptionLine`, `Invoice`, `InvoiceLine`, `Payment`, `BillingRun`) in `backend/app/models/` with `NUMERIC(12, 2)` monetary handling, UUID primary keys, and compound uniqueness constraint `uq_invoice_subscription_period`.
+- [x] Phase 2 Schema & Validation: Authored matching Pydantic request/response schemas in `backend/app/schemas/`. Verified model relationships, conversion idempotency, and constraints with 26 automated unit tests in `backend/tests/unit/`.
+- [ ] Phase 3: Quotation creation, line item calculation, and approval workflow service implementation.
 
 ### Member 4 - Dashboard & Integration (`dashboard`)
 - [x] Initial documentation for repository layout, Docker Compose setup, and analytics integration.

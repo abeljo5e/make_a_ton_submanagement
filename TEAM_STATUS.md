@@ -17,9 +17,10 @@ Current progress and active tasks across all modules. Update this checklist when
 
 ## Member 3 — Quotations, Subscriptions & Billing (`billing`)
 - [x] Phase 1: Architectural foundation, financial arithmetic, idempotency, and Member 2 schema review (`docs/MEMBER_3_FOUNDATION_SPEC.md`)
-- [ ] Quotation generation and approval workflow
-- [ ] Subscription lifecycle management (Active, Paused, Canceled)
-- [ ] Recurring invoice calculation and generation
+- [x] Phase 2: Database models, relationships, constraints, and Pydantic schemas (`Quotation`, `Subscription`, `Invoice`, `Payment`, `BillingRun`)
+- [ ] Quotation generation and approval workflow (Phase 3)
+- [ ] Subscription lifecycle management (Active, Paused, Canceled) (Phase 4)
+- [ ] Recurring invoice calculation and generation (Phase 5)
 - [ ] Tax calculations and payment simulation / recording
 - [ ] Billing and invoice frontend screens
 
