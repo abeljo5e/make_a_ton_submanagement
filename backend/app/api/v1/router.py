@@ -1,10 +1,15 @@
 """
-API v1 Router aggregating endpoints for Brightloop Subscription Management System.
+API v1 Router aggregating endpoints for Brightloop Subscription Management System across all team modules.
 """
 from fastapi import APIRouter
 
 # Member 1: Auth & User Management
 from app.api.v1.endpoints import auth, users
+
+# Member 2: Products & Subscription Plans
+from app.api.v1.endpoints.products import router as products_router
+from app.api.v1.endpoints.variants import router as variants_router
+from app.api.v1.endpoints.plans import router as plans_router
 
 # Member 3: Quotations, Subscriptions, Invoices, Payments, Billing
 from app.api.v1.endpoints.quotations import router as quotations_router
@@ -22,6 +27,11 @@ api_router = APIRouter()
 # Member 1 Routers
 api_router.include_router(auth.router)
 api_router.include_router(users.router)
+
+# Member 2 Routers
+api_router.include_router(products_router, prefix="/products", tags=["Products"])
+api_router.include_router(variants_router, prefix="/variants", tags=["Variants"])
+api_router.include_router(plans_router, prefix="/plans", tags=["Plans"])
 
 # Member 3 Routers
 api_router.include_router(quotations_router)

@@ -10,10 +10,10 @@ Current progress and active tasks across all modules. Update this checklist when
 - [x] User profile endpoints and frontend screens
 
 ## Member 2 — Products & Plans (`products`)
-- [ ] Product models, migrations, and CRUD API
-- [ ] Product variants and currency/pricing rules
-- [ ] Subscription plan creation and billing intervals (monthly/yearly)
-- [ ] Product catalog and plan management frontend screens
+- [x] Product models, migrations, and CRUD API
+- [x] Product variants and currency/pricing rules
+- [x] Subscription plan creation and billing intervals (monthly/yearly)
+- [x] Product catalog and plan management frontend screens
 
 ## Member 3 — Quotations, Subscriptions & Billing (`billing`)
 - [x] Phase 1: Architectural foundation, financial arithmetic, idempotency, and Member 2 schema review (`docs/MEMBER_3_FOUNDATION_SPEC.md`)
@@ -33,4 +33,6 @@ Current progress and active tasks across all modules. Update this checklist when
 - [ ] End-to-end integration and smoke testing
 
 ## Current Issues
-- Repository initialization completed; development branches to be created for parallel feature implementation.
+- Member 2's module (Products and Subscription Plans) backend and frontend components are implemented and tested (11 passing tests, Vite production build verified).
+- Integration handoff ready for Member 3 (`billing`) to consume product and plan APIs for quotations/subscriptions.
+- Awaiting Member 1 (`auth`) to supply JWT authorization middleware to replace the temporary mock role provider in `App.jsx`.

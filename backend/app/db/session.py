@@ -1,14 +1,18 @@
+import os
 from typing import Generator
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, Session
-from app.core.config import settings
 
-connect_args = {}
-if settings.DATABASE_URL.startswith("sqlite"):
-    connect_args["check_same_thread"] = False
+try:
+    from app.core.config import settings
+    DATABASE_URL = settings.DATABASE_URL
+except Exception:
+    DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./brightloop.db")
+
+connect_args = {"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {}
 
 engine = create_engine(
-    settings.DATABASE_URL,
+    DATABASE_URL,
     connect_args=connect_args,
     pool_pre_ping=True,
 )

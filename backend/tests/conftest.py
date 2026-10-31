@@ -1,13 +1,17 @@
+import os
+import sys
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.pool import StaticPool
-import os
-import sys
 
-# Ensure backend directory is in python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+# Ensure backend and repo root are in python path
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+for d in [root_dir, backend_dir]:
+    if d not in sys.path:
+        sys.path.insert(0, d)
 
 from app.main import app
 from app.db.base import Base
@@ -19,24 +23,25 @@ from app.core.security import hash_password, create_access_token
 # In-memory SQLite database for testing
 TEST_DATABASE_URL = "sqlite:///:memory:"
 
-engine = create_engine(
+TEST_ENGINE = create_engine(
     TEST_DATABASE_URL,
     connect_args={"check_same_thread": False},
     poolclass=StaticPool,
 )
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=TEST_ENGINE)
 
 
 @pytest.fixture(scope="function")
 def db_session():
     """Create a fresh database for each test function."""
-    Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=TEST_ENGINE)
     session = TestingSessionLocal()
     try:
         yield session
     finally:
+        session.rollback()
         session.close()
-        Base.metadata.drop_all(bind=engine)
+        Base.metadata.drop_all(bind=TEST_ENGINE)
 
 
 @pytest.fixture(scope="function")

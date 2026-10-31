@@ -6,6 +6,16 @@ from app.services.dashboard_service import dashboard_service, DashboardService
 from app.services.analytics_service import analytics_service, AnalyticsService
 from app.services.auth_service import auth_service, AuthService
 from app.services.user_service import user_service, UserService
+from app.services.product_service import (
+    ProductService,
+    ProductNotFoundError,
+    ProductVariantNotFoundError,
+)
+from app.services.plan_service import (
+    PlanService,
+    PlanNotFoundError,
+    PlanProductValidationError,
+)
 
 __all__ = [
     "QuotationService",
@@ -20,4 +30,10 @@ __all__ = [
     "AuthService",
     "user_service",
     "UserService",
+    "ProductService",
+    "ProductNotFoundError",
+    "ProductVariantNotFoundError",
+    "PlanService",
+    "PlanNotFoundError",
+    "PlanProductValidationError",
 ]

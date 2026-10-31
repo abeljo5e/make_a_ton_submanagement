@@ -32,7 +32,7 @@ class SubscriptionPlan(Base):
     currency: Mapped[str] = mapped_column(String(3), nullable=False, default="INR")
     
     # Billing interval rules
-    billing_interval: Mapped[str] = mapped_column(String(50), nullable=False, default="monthly")  # e.g., 'monthly', 'yearly', 'quarterly'
+    billing_interval: Mapped[str] = mapped_column(String(50), nullable=False, default="monthly")
     billing_interval_count: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
     minimum_quantity: Mapped[int] = mapped_column(Integer, nullable=False, default=1)
 
@@ -126,4 +126,3 @@ class PlanProduct(Base):
 
     def __repr__(self) -> str:
         return f"<PlanProduct(id={self.id}, plan_id={self.plan_id}, product_id={self.product_id}, variant_id={self.variant_id}, quantity={self.quantity})>"
-
