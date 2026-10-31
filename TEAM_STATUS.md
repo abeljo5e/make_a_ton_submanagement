@@ -3,11 +3,11 @@
 Current progress and active tasks across all modules. Update this checklist when starting or completing tasks.
 
 ## Member 1 — Authentication & User Management (`auth`)
-- [ ] User registration and password complexity validation
-- [ ] Login and JWT authentication flow
-- [ ] Role-based access control (Admin, Staff, Customer)
-- [ ] Password reset flow
-- [ ] User profile endpoints and frontend screens
+- [x] User registration and password complexity validation
+- [x] Login and JWT authentication flow
+- [x] Role-based access control (Admin, Staff, Customer)
+- [x] Password reset flow
+- [x] User profile endpoints and frontend screens
 
 ## Member 2 — Products & Plans (`products`)
 - [ ] Product models, migrations, and CRUD API
