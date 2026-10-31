@@ -4,8 +4,8 @@ from typing import List, Optional, Tuple
 from sqlalchemy import select, func, and_
 from sqlalchemy.orm import Session, selectinload
 
-from backend.app.models.product import Product, ProductVariant
-from backend.app.schemas.product import (
+from app.models.product import Product, ProductVariant
+from app.schemas.product import (
     ProductCreate,
     ProductUpdate,
     ProductVariantCreate,

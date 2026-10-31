@@ -3,12 +3,12 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
-from backend.app.db.session import get_db
-from backend.app.schemas.product import (
+from app.db.session import get_db
+from app.schemas.product import (
     ProductVariantUpdate,
     ProductVariantResponse,
 )
-from backend.app.services.product_service import (
+from app.services.product_service import (
     ProductService,
     ProductVariantNotFoundError,
 )

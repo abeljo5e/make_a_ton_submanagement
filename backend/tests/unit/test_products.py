@@ -2,8 +2,8 @@ import uuid
 from decimal import Decimal
 import pytest
 
-from backend.app.schemas.product import ProductCreate, ProductVariantCreate
-from backend.app.services.product_service import ProductService, ProductNotFoundError, ProductVariantNotFoundError
+from app.schemas.product import ProductCreate, ProductVariantCreate
+from app.services.product_service import ProductService, ProductNotFoundError, ProductVariantNotFoundError
 
 
 def test_create_product_with_variants(db_session):
@@ -54,7 +54,7 @@ def test_update_and_deactivate_product(db_session):
     product = service.create_product(ProductCreate(name="Initial Name", sales_price=Decimal("100.00")))
 
     # Update
-    from backend.app.schemas.product import ProductUpdate
+    from app.schemas.product import ProductUpdate
     updated = service.update_product(product.id, ProductUpdate(name="Updated Name", sales_price=Decimal("150.00")))
     assert updated.name == "Updated Name"
     assert updated.sales_price == Decimal("150.00")
@@ -81,7 +81,7 @@ def test_variant_lifecycle(db_session):
     assert variant.product_id == product.id
 
     # Update variant
-    from backend.app.schemas.product import ProductVariantUpdate
+    from app.schemas.product import ProductVariantUpdate
     updated_var = service.update_variant(variant.id, ProductVariantUpdate(name="Pro Max"))
     assert updated_var.name == "Pro Max"
 

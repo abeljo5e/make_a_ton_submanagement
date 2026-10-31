@@ -5,9 +5,9 @@ from typing import List, Optional, Tuple
 from sqlalchemy import select, func, and_, or_
 from sqlalchemy.orm import Session, selectinload
 
-from backend.app.models.product import Product, ProductVariant
-from backend.app.models.plan import SubscriptionPlan, PlanProduct
-from backend.app.schemas.plan import (
+from app.models.product import Product, ProductVariant
+from app.models.plan import SubscriptionPlan, PlanProduct
+from app.schemas.plan import (
     SubscriptionPlanCreate,
     SubscriptionPlanUpdate,
     PlanProductInput,

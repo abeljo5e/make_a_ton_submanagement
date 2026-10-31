@@ -2,14 +2,14 @@ import uuid
 from decimal import Decimal
 import pytest
 
-from backend.app.schemas.product import ProductCreate, ProductVariantCreate
-from backend.app.schemas.plan import (
+from app.schemas.product import ProductCreate, ProductVariantCreate
+from app.schemas.plan import (
     SubscriptionPlanCreate,
     SubscriptionPlanUpdate,
     PlanProductInput,
 )
-from backend.app.services.product_service import ProductService
-from backend.app.services.plan_service import (
+from app.services.product_service import ProductService
+from app.services.plan_service import (
     PlanService,
     PlanNotFoundError,
     PlanProductValidationError,

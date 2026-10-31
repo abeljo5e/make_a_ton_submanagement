@@ -3,14 +3,14 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy.orm import Session
 
-from backend.app.db.session import get_db
-from backend.app.schemas.plan import (
+from app.db.session import get_db
+from app.schemas.plan import (
     SubscriptionPlanCreate,
     SubscriptionPlanUpdate,
     SubscriptionPlanResponse,
     PlanProductInput,
 )
-from backend.app.services.plan_service import (
+from app.services.plan_service import (
     PlanService,
     PlanNotFoundError,
     PlanProductValidationError,
