@@ -14,6 +14,12 @@ export default function Layout() {
         </div>
 
         <nav className="nav-links">
+          <NavLink to="/dashboard" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+            <span>📊</span> Dashboard
+          </NavLink>
+          <NavLink to="/analytics" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
+            <span>📈</span> Analytics
+          </NavLink>
           <NavLink to="/quotations" className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}>
             <span>📋</span> Quotations
           </NavLink>
@@ -32,12 +38,12 @@ export default function Layout() {
       <div className="main-content">
         <header className="topbar">
           <div style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-            System Role: <strong>Internal Staff / Billing Admin</strong>
+            Active View: <strong>Billing Administration &amp; Business Intelligence</strong>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span className="badge badge-active">Live System</span>
-            <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
-              M3
+            <span className="badge badge-active">FastAPI Engine</span>
+            <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: '#4f46e5', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold' }}>
+              BL
             </div>
           </div>
         </header>
@@ -49,4 +55,3 @@ export default function Layout() {
     </div>
   );
 }
-

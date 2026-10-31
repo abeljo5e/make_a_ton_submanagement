@@ -1,6 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/common/Layout';
+import AdminDashboard from './features/dashboard/AdminDashboard';
+import StaffDashboard from './features/dashboard/StaffDashboard';
+import CustomerDashboard from './features/dashboard/CustomerDashboard';
+import Analytics from './features/analytics/Analytics';
 import QuotationList from './features/quotations/QuotationList';
 import QuotationCreate from './features/quotations/QuotationCreate';
 import QuotationDetail from './features/quotations/QuotationDetail';
@@ -15,18 +19,24 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Navigate to="/quotations" replace />} />
+          <Route index element={<Navigate to="/dashboard" replace />} />
           
-          {/* Quotation Routes */}
+          {/* Dashboard & Analytics Routes (Member 4) */}
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="staff-dashboard" element={<StaffDashboard />} />
+          <Route path="my-dashboard" element={<CustomerDashboard />} />
+          <Route path="analytics" element={<Analytics />} />
+
+          {/* Quotation Routes (Member 3) */}
           <Route path="quotations" element={<QuotationList />} />
           <Route path="quotations/new" element={<QuotationCreate />} />
           <Route path="quotations/:id" element={<QuotationDetail />} />
 
-          {/* Subscription Routes */}
+          {/* Subscription Routes (Member 3) */}
           <Route path="subscriptions" element={<SubscriptionList />} />
           <Route path="subscriptions/:id" element={<SubscriptionDetail />} />
 
-          {/* Invoice & Payment Routes */}
+          {/* Invoice & Payment Routes (Member 3) */}
           <Route path="invoices" element={<InvoiceList />} />
           <Route path="invoices/:id" element={<InvoiceDetail />} />
           <Route path="payments" element={<PaymentHistory />} />
@@ -35,4 +45,3 @@ export default function App() {
     </BrowserRouter>
   );
 }
-
