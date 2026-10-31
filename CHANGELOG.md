@@ -15,7 +15,16 @@ Every teammate (and their AI agent) adds an entry under the current date when co
 
 ### Member 2 - Products & Plans (`products`)
 - [x] Initial documentation for product CRUD, variant schemas, and subscription plan pricing models.
-- [ ] Setting up product catalog, product variants, and subscription plan management.
+- [x] Implemented SQLAlchemy 2.0 ORM models for `Product`, `ProductVariant`, `SubscriptionPlan`, and `PlanProduct` (`plan_products`).
+- [x] Implemented Pydantic v2 schemas and validation for products, variants, subscription plans, and bundled product associations.
+- [x] Built `ProductService` and `PlanService` business layers enforcing Decimal money handling, foreign key referential integrity, and soft-deactivation.
+- [x] Built FastAPI REST endpoints for `/api/v1/products`, `/api/v1/variants`, and `/api/v1/plans` adhering to `docs/API_CONTRACTS.md`.
+- [x] Built React frontend with React Router:
+  - Product management screens (list, create, edit, deactivate, and variant management).
+  - Subscription plan management screens (list, create, edit, deactivate, and product bundling).
+  - Customer-facing plan catalogue (`PlanCatalogue.jsx`) with billing frequency filtering.
+- [x] Added automated unit and integration tests (11 passing tests across service and API layers).
+- [x] Verified Vite production build (`dist/index.html`, `dist/assets/`).
 
 ### Member 3 - Billing & Subscriptions (`billing`)
 - [x] Initial documentation for quotation workflows, subscription lifecycle, recurring invoice generation, and payment recording.
