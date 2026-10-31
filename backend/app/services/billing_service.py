@@ -221,3 +221,4 @@ class BillingService:
         total = db.scalar(count_stmt) or 0
         items = list(db.scalars(stmt.offset(skip).limit(limit)).all())
         return items, total
+

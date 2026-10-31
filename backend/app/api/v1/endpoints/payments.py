@@ -46,3 +46,4 @@ def get_payment(id: uuid.UUID, db: Session = Depends(get_db)):
     if not payment:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Payment {id} not found")
     return payment
+

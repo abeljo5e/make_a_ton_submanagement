@@ -164,3 +164,4 @@ def test_cannot_renew_canceled_subscription(db_session: Session):
 
     with pytest.raises(InvalidStateTransitionError, match="Cannot renew a canceled subscription"):
         SubscriptionService.renew_subscription(db_session, sub.id)
+

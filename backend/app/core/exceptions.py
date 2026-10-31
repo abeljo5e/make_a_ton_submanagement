@@ -29,3 +29,4 @@ class InvalidStateTransitionError(BrightloopException):
 class ExpiredError(BrightloopException):
     def __init__(self, message: str = "Resource has expired"):
         super().__init__(message, code="EXPIRED")
+

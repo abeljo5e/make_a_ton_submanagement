@@ -16,3 +16,4 @@ def trigger_billing_run(data: BillingRunRequest = None, db: Session = Depends(ge
     """Trigger a recurring billing execution."""
     run_date = data.run_date if data else None
     return BillingService.process_recurring_billing_run(db, run_date=run_date, trigger_type="MANUAL")
+

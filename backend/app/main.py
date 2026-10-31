@@ -34,3 +34,4 @@ app.include_router(api_router, prefix="/api/v1")
 @app.get("/health", tags=["Health"])
 def health_check():
     return {"status": "ok", "service": "brightloop-backend"}
+

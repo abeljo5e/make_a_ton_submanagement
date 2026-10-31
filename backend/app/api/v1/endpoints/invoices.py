@@ -36,3 +36,4 @@ def get_invoice(id: uuid.UUID, db: Session = Depends(get_db)):
     if not invoice:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Invoice {id} not found")
     return invoice
+

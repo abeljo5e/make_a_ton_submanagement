@@ -231,3 +231,4 @@ class SubscriptionService:
         db.commit()
         db.refresh(subscription)
         return subscription
+

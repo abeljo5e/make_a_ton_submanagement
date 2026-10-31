@@ -22,7 +22,8 @@ Current progress and active tasks across all modules. Update this checklist when
 - [x] Phase 4: Subscription lifecycle management, pause/resume, cancel, and renewal (`SubscriptionService`)
 - [x] Phase 5: Recurring billing runs, idempotent invoice generation, and payment reconciliation (`BillingService`, `PaymentService`)
 - [x] Phase 6: REST API endpoints (`/quotations`, `/subscriptions`, `/invoices`, `/payments`, `/billing/run`)
-- [ ] Phase 7: Billing and invoice frontend screens
+- [x] Phase 7: Billing, quotation, subscription, and invoice frontend UI screens (`frontend/src/features/`)
+- [x] Phase 8: Full verification (45 automated backend tests + Vite frontend production build passing with 0 errors)
 
 ## Member 4 — Dashboard, Analytics & Deployment (`dashboard`)
 - [ ] Docker Compose setup for local development (FastAPI + PostgreSQL + Vite)
