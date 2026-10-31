@@ -196,3 +196,4 @@ def test_admin_gets_invoice_analytics(setup_users):
         assert key in data
     for key in ("paid_amount", "outstanding_amount", "cancelled_amount"):
         assert key in data["totals"]
+

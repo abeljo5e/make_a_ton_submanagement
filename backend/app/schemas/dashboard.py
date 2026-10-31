@@ -83,3 +83,4 @@ class CustomerDashboardResponse(BaseModel):
     subscription: Optional[CustomerSubscriptionInfo] = None
     recent_invoices: List[CustomerInvoiceItem] = []
     available_plans: List[AvailablePlanItem] = []
+

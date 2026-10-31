@@ -57,3 +57,4 @@ def get_invoice_analytics(
 ):
     """Aggregate monthly issued, paid, and outstanding counts, totals, and payment rate."""
     return analytics_service.get_invoice_analytics(db, months=months)
+

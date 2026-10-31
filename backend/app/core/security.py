@@ -155,3 +155,4 @@ def require_role(allowed_roles: List[Union[UserRole, str]]):
 require_admin = require_role([UserRole.ADMIN, "admin"])
 require_staff = require_role([UserRole.ADMIN, UserRole.STAFF, "admin", "staff"])
 require_customer = require_role([UserRole.CUSTOMER, "customer"])
+

@@ -50,3 +50,4 @@ class AnalyticsInvoicesResponse(BaseModel):
     monthly: List[MonthlyInvoiceStat]
     totals: InvoiceTotals
     payment_rate: str
+

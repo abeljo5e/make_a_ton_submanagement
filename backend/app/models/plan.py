@@ -126,3 +126,4 @@ class PlanProduct(Base):
 
     def __repr__(self) -> str:
         return f"<PlanProduct(id={self.id}, plan_id={self.plan_id}, product_id={self.product_id}, variant_id={self.variant_id}, quantity={self.quantity})>"
+

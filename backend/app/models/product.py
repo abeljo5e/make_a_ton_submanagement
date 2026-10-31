@@ -111,3 +111,4 @@ class ProductVariant(Base):
 
     def __repr__(self) -> str:
         return f"<ProductVariant(id={self.id}, product_id={self.product_id}, name='{self.name}', additional_price={self.additional_price})>"
+

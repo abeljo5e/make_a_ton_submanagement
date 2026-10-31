@@ -87,3 +87,4 @@ def get_customer_dashboard(
 ):
     """Return current subscription, last 5 invoices, and available plans for the caller."""
     return dashboard_service.get_customer_dashboard(db, customer_id=current_user.id)
+
